@@ -57,6 +57,9 @@ public class StoryAdapter extends ArrayAdapter<Story> {
         TextView sectionView = (TextView) listItemView.findViewById(R.id.section_name);
         sectionView.setText(currentStory.getmSection());
 
+        TextView authorView = (TextView) listItemView.findViewById(R.id.author_name);
+        authorView.setText(currentStory.getmAuthor());
+
         TextView titleView = (TextView) listItemView.findViewById(R.id.story_title);
         titleView.setText(currentStory.getmTitle());
 

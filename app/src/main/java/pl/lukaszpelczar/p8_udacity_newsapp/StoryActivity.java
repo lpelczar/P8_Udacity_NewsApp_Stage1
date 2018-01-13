@@ -40,7 +40,7 @@ public class StoryActivity extends AppCompatActivity
 
     /** URL for stories from Guardian API */
     private static final String GUARDIAN_REQUEST_URL =
-            "https://content.guardianapis.com/search?order-by=newest&q=bitcoin&api-key=f51da863-1553-4b0f-8207-bad009cf42d4";
+            "https://content.guardianapis.com/search?order-by=newest&q=bitcoin&show-tags=contributor&api-key=f51da863-1553-4b0f-8207-bad009cf42d4";
 
     /**
      * Constant value for the story loader ID. We can choose any integer.

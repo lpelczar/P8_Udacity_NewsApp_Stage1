@@ -25,13 +25,24 @@
         android:textSize="12sp"
         tools:text="Mar 6, 2010" />
 
+    <TextView
+        android:id="@+id/author_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_below="@id/story_date"
+        android:layout_alignRight="@id/story_date"
+        android:textColor="@android:color/black"
+        android:textSize="12sp"
+        tools:text="Steve Jobs" />
+
 
     <TextView
         android:id="@+id/story_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/section_name"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="18dp"
         android:ellipsize="end"
         android:maxLines="2"
         android:textColor="@android:color/black"

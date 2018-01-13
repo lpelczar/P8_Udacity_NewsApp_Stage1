@@ -43,14 +43,16 @@ public final class QueryUtils {
 
     private static final int SUCCESS_CODE = 200;
 
-    /** JSON objects constants */
+    /** JSON objects data */
     private static final String RESPONSE = "response";
     private static final String RESULTS = "results";
     private static final String WEB_PUBLICATION_DATE = "webPublicationDate";
     private static final String WEB_TITLE = "webTitle";
     private static final String SECTION_NAME = "sectionName";
     private static final String WEB_URL = "webUrl";
-
+    private static final String TAGS = "tags";
+    private static final String NO_AVAILABLE = "N/A";
+    private static final int TAGS_INDEX = 0;
     /**
      * Create a private constructor because no one should ever create a {@link QueryUtils} object.
      * This class is only meant to hold static variables and methods, which can be accessed
@@ -195,8 +197,17 @@ public final class QueryUtils {
 
                 String url = currentStory.getString(WEB_URL);
 
+                JSONArray tagsArray = currentStory.getJSONArray(TAGS);
+
+                JSONObject currentStoryTags = tagsArray.getJSONObject(TAGS_INDEX);
+
+                String author = currentStoryTags.getString(WEB_TITLE);
+                if (author.isEmpty()) {
+                    author = NO_AVAILABLE;
+                }
+
                 // Create a new {@link Story} object
-                Story story = new Story(date, title, section, url);
+                Story story = new Story(date, title, section, url, author);
 
                 // Add the new {@link Story} to the list of stories.
                 stories.add(story);
