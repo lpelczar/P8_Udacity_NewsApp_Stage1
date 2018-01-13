@@ -43,6 +43,14 @@ public final class QueryUtils {
 
     private static final int SUCCESS_CODE = 200;
 
+    /** JSON objects constants */
+    private static final String RESPONSE = "response";
+    private static final String RESULTS = "results";
+    private static final String WEB_PUBLICATION_DATE = "webPublicationDate";
+    private static final String WEB_TITLE = "webTitle";
+    private static final String SECTION_NAME = "sectionName";
+    private static final String WEB_URL = "webUrl";
+
     /**
      * Create a private constructor because no one should ever create a {@link QueryUtils} object.
      * This class is only meant to hold static variables and methods, which can be accessed
@@ -169,9 +177,9 @@ public final class QueryUtils {
             // Create a JSONObject from the JSON response string
             JSONObject baseJsonResponse = new JSONObject(storyJSON);
 
-            JSONObject response = baseJsonResponse.getJSONObject("response");
+            JSONObject response = baseJsonResponse.getJSONObject(RESPONSE);
 
-            JSONArray storyArray = response.getJSONArray("results");
+            JSONArray storyArray = response.getJSONArray(RESULTS);
 
             // For each story in the storyArray, create an {@link Story} object
             for (int i = 0; i < storyArray.length(); i++) {
@@ -179,13 +187,13 @@ public final class QueryUtils {
                 // Get a single story at position i within the list of stories
                 JSONObject currentStory = storyArray.getJSONObject(i);
 
-                String date = currentStory.getString("webPublicationDate");
+                String date = currentStory.getString(WEB_PUBLICATION_DATE);
 
-                String title = currentStory.getString("webTitle");
+                String title = currentStory.getString(WEB_TITLE);
 
-                String section = currentStory.getString("sectionName");
+                String section = currentStory.getString(SECTION_NAME);
 
-                String url = currentStory.getString("webUrl");
+                String url = currentStory.getString(WEB_URL);
 
                 // Create a new {@link Story} object
                 Story story = new Story(date, title, section, url);
