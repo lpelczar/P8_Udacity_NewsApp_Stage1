@@ -88,7 +88,7 @@ public class StoryActivity extends AppCompatActivity
                 Story currentStory = mAdapter.getItem(position);
 
                 // Convert the String URL into a URI object (to pass into the Intent constructor)
-                Uri storyUri = Uri.parse(currentStory.getmUrl());
+                Uri storyUri = Uri.parse(currentStory.getUrl());
 
                 // Create a new intent to view the story URI
                 Intent websiteIntent = new Intent(Intent.ACTION_VIEW, storyUri);

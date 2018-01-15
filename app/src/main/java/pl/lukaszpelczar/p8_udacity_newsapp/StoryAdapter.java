@@ -55,16 +55,16 @@ public class StoryAdapter extends ArrayAdapter<Story> {
         Story currentStory = getItem(position);
 
         TextView sectionView = (TextView) listItemView.findViewById(R.id.section_name);
-        sectionView.setText(currentStory.getmSection());
+        sectionView.setText(currentStory.getSection());
 
         TextView authorView = (TextView) listItemView.findViewById(R.id.author_name);
-        authorView.setText(currentStory.getmAuthor());
+        authorView.setText(currentStory.getAuthor());
 
         TextView titleView = (TextView) listItemView.findViewById(R.id.story_title);
-        titleView.setText(currentStory.getmTitle());
+        titleView.setText(currentStory.getTitle());
 
         TextView dateView = (TextView) listItemView.findViewById(R.id.story_date);
-        String formattedDate = formatDate(currentStory.getmDate());
+        String formattedDate = formatDate(currentStory.getDate());
         dateView.setText(formattedDate);
 
         // Return the list item view that is now showing the appropriate data

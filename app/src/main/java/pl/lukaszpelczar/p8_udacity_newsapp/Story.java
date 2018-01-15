@@ -2,35 +2,37 @@ package pl.lukaszpelczar.p8_udacity_newsapp;
 
 public class Story {
 
-    private String mDate;
-    private String mSection;
-    private String mTitle;
-    private String mAuthor;
-    private String mUrl;
+    private String date;
+    private String section;
+    private String title;
+    private String author;
+    private String url;
 
     public Story(String date, String title, String section, String url, String author){
-        mDate = date;
-        mSection = section;
-        mTitle = title;
-        mUrl = url;
-        mAuthor = author;
+        this.date = date;
+        this.section = section;
+        this.title = title;
+        this.url = url;
+        this.author = author;
     }
 
-    public String getmDate() {
-        return mDate;
+    public String getDate() {
+        return date;
     }
 
-    public String getmSection() {
-        return mSection;
+    public String getSection() {
+        return section;
     }
 
-    public String getmTitle() {
-        return mTitle;
+    public String getTitle() {
+        return title;
     }
 
-    public String getmUrl() {
-        return mUrl;
+    public String getAuthor() {
+        return author;
     }
 
-    public String getmAuthor() { return mAuthor; }
+    public String getUrl() {
+        return url;
+    }
 }
