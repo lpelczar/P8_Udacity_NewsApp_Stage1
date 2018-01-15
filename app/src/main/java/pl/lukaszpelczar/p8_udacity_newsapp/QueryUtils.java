@@ -182,13 +182,19 @@ public final class QueryUtils {
 
                 String url = currentStory.getString(WEB_URL);
 
-                JSONArray tagsArray = currentStory.getJSONArray(TAGS);
+                String author = NO_AVAILABLE;
 
-                JSONObject currentStoryTags = tagsArray.getJSONObject(TAGS_INDEX);
+                if (currentStory.has(TAGS)) {
 
-                String author = currentStoryTags.getString(WEB_TITLE);
-                if (author.isEmpty()) {
-                    author = NO_AVAILABLE;
+                    JSONArray tagsArray = currentStory.getJSONArray(TAGS);
+
+                    if (!tagsArray.isNull(TAGS_INDEX)) {
+                        JSONObject currentStoryTags = tagsArray.getJSONObject(TAGS_INDEX);
+
+                        if (currentStory.has(WEB_TITLE)) {
+                            author = currentStoryTags.getString(WEB_TITLE);
+                        }
+                    }
                 }
 
                 // Create a new {@link Story} object
