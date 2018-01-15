@@ -174,13 +174,13 @@ public final class QueryUtils {
                 // Get a single story at position i within the list of stories
                 JSONObject currentStory = storyArray.getJSONObject(i);
 
-                String date = currentStory.getString(WEB_PUBLICATION_DATE);
+                String date = currentStory.optString(WEB_PUBLICATION_DATE);
 
-                String title = currentStory.getString(WEB_TITLE);
+                String title = currentStory.optString(WEB_TITLE);
 
-                String section = currentStory.getString(SECTION_NAME);
+                String section = currentStory.optString(SECTION_NAME);
 
-                String url = currentStory.getString(WEB_URL);
+                String url = currentStory.optString(WEB_URL);
 
                 String author = NO_AVAILABLE;
 
