@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    style="@style/StoryLayout">
+    style="@style/StoryLayout"
+    android:layout_width="match_parent">
 
     <TextView
         android:id="@+id/section_name"
@@ -17,8 +17,8 @@
         android:id="@+id/story_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:layout_alignParentRight="true"
+        android:layout_marginTop="12dp"
         android:textColor="@android:color/black"
         android:textSize="12sp"
         tools:text="Mar 6, 2010" />
@@ -27,9 +27,9 @@
         android:id="@+id/author_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:layout_below="@id/story_date"
         android:layout_alignRight="@id/story_date"
+        android:layout_below="@id/story_date"
+        android:layout_marginTop="2dp"
         android:textColor="@android:color/black"
         android:textSize="12sp"
         tools:text="Steve Jobs" />

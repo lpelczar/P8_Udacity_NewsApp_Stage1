@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">\nBitcoin News</string>
-    <!-- Text to display in the list when there are no earthquakes [CHAR LIMIT=NONE] -->
     <string name="no_stories">No stories found. Try again later.</string>
-
-    <!-- Error message when there is no internet connectivity [CHAR LIMIT=NONE] -->
     <string name="no_internet_connection">No internet connection.</string>
 </resources>
