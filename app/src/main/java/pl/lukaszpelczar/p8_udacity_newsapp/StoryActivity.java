@@ -83,12 +83,8 @@ public class StoryActivity extends AppCompatActivity
             }
         });
 
-        // Get a reference to the ConnectivityManager to check state of network connectivity
-        ConnectivityManager connMgr = (ConnectivityManager)
-                getSystemService(Context.CONNECTIVITY_SERVICE);
-
         // Get details on the currently active default data network
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        NetworkInfo networkInfo = getNetworkInfo();
 
         // If there is a network connection, fetch data
         if (networkInfo != null && networkInfo.isConnected()) {
@@ -122,17 +118,41 @@ public class StoryActivity extends AppCompatActivity
         View loadingIndicator = findViewById(R.id.loading_indicator);
         loadingIndicator.setVisibility(View.GONE);
 
-        // Set empty state text to display "No stories found."
-        mEmptyStateTextView.setText(R.string.no_stories);
+        // Get details on the currently active default data network
+        NetworkInfo networkInfo = getNetworkInfo();
 
-        // Clear the adapter of previous story data
-        mAdapter.clear();
+        // If there is a network connection,
+        if (networkInfo != null && networkInfo.isConnected()) {
 
-        // If there is a valid list of {@link Story}s, then add them to the adapter's
-        // data set. This will trigger the ListView to update.
-        if (stories != null && !stories.isEmpty()) {
-            mAdapter.addAll(stories);
+            // Set empty state text to display "No stories found."
+            mEmptyStateTextView.setText(R.string.no_stories);
+
+            // Clear the adapter of previous story data
+            mAdapter.clear();
+
+            // If there is a valid list of {@link Story}s, then add them to the adapter's
+            // data set. This will trigger the ListView to update.
+            if (stories != null && !stories.isEmpty()) {
+                mAdapter.addAll(stories);
+            }
+        } else {
+            // Clear the adapter of previous story data
+            mAdapter.clear();
+
+            // Set empty state text to display "No internet connection."
+            mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
+    }
+
+    private NetworkInfo getNetworkInfo() {
+        // Get a reference to the ConnectivityManager to check state of network connectivity
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        // Get details on the currently active default data network
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+
+        return networkInfo;
     }
 
     @Override
